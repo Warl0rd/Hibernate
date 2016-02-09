@@ -1,7 +1,7 @@
 package ru.sokolov.hibernate.models;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,18 +10,17 @@ import javax.persistence.Table;
 public class Student {
 	
 	@Id
-	@Column(name="No")
-	private int rolNo;
+	@GeneratedValue
+	private int student_id;
 	
-	@Column(name="NAME")
 	private String name;
 
-	public int getRolNo() {
-		return rolNo;
+	public int getStudent_id() {
+		return student_id;
 	}
 
-	public void setRolNo(int rolNo) {
-		this.rolNo = rolNo;
+	public void setStudent_id(int student_id) {
+		this.student_id = student_id;
 	}
 
 	public String getName() {

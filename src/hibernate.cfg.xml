@@ -30,9 +30,10 @@
         <property name="show_sql">true</property>
 
         <!-- Drop the existing tables and create new one -->
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create</property>
 
 		<!-- Mention here all the model classes along with their package name -->
         <mapping class="ru.sokolov.hibernate.models.Student"/>
+        <mapping class="ru.sokolov.hibernate.models.StudentDetail"/>
     </session-factory>
 </hibernate-configuration>
