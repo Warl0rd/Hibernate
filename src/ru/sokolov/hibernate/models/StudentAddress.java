@@ -21,7 +21,7 @@ public class StudentAddress {
 	private String address_detail;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="studentAddress")
-	private Set<Student> students = new HashSet<Student>(0);
+	private Set<Student> students = new HashSet<>(0);
 
 	public int getAddress_id() {
 		return address_id;

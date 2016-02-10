@@ -36,5 +36,6 @@
         <mapping class="ru.sokolov.hibernate.models.Student"/>
         <mapping class="ru.sokolov.hibernate.models.StudentDetail"/>
         <mapping class="ru.sokolov.hibernate.models.StudentAddress"/>
+        <mapping class="ru.sokolov.hibernate.models.StudentSertification"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,10 +1,14 @@
 package ru.sokolov.hibernate.models;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -25,6 +29,9 @@ public class Student {
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	private StudentAddress studentAddress;
+	
+	@ManyToMany(cascade=CascadeType.ALL)
+	private Set<StudentSertification> studentSertifications = new HashSet<>(0);
 	
 	public int getStudent_id() {
 		return student_id;
@@ -56,5 +63,13 @@ public class Student {
 
 	public void setStudentAddress(StudentAddress studentAddress) {
 		this.studentAddress = studentAddress;
+	}
+
+	public Set<StudentSertification> getStudentSertifications() {
+		return studentSertifications;
+	}
+
+	public void setStudentSertifications(Set<StudentSertification> studentSertifications) {
+		this.studentSertifications = studentSertifications;
 	}
 }
