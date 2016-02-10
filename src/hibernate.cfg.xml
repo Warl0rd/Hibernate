@@ -35,5 +35,6 @@
 		<!-- Mention here all the model classes along with their package name -->
         <mapping class="ru.sokolov.hibernate.models.Student"/>
         <mapping class="ru.sokolov.hibernate.models.StudentDetail"/>
+        <mapping class="ru.sokolov.hibernate.models.StudentAddress"/>
     </session-factory>
 </hibernate-configuration>

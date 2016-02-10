@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -22,14 +23,9 @@ public class Student {
 	@JoinColumn(name="student_id")
 	private StudentDetail studentDetail;
 	
-	public StudentDetail getStudentDetail() {
-		return studentDetail;
-	}
-
-	public void setStudentDetail(StudentDetail studentDetail) {
-		this.studentDetail = studentDetail;
-	}
-
+	@ManyToOne(cascade=CascadeType.ALL)
+	private StudentAddress studentAddress;
+	
 	public int getStudent_id() {
 		return student_id;
 	}
@@ -44,5 +40,21 @@ public class Student {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public StudentDetail getStudentDetail() {
+		return studentDetail;
+	}
+
+	public void setStudentDetail(StudentDetail studentDetail) {
+		this.studentDetail = studentDetail;
+	}
+
+	public StudentAddress getStudentAddress() {
+		return studentAddress;
+	}
+
+	public void setStudentAddress(StudentAddress studentAddress) {
+		this.studentAddress = studentAddress;
 	}
 }
