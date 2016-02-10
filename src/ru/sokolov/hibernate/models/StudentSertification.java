@@ -1,8 +1,13 @@
 package ru.sokolov.hibernate.models;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +19,9 @@ public class StudentSertification {
 	private int certification_id;
 	
 	private String certification_name;
+	
+	@ManyToMany(cascade=CascadeType.ALL, mappedBy="studentSertifications")
+	private Set<Student> students = new HashSet<>(0);
 
 	public int getCertification_id() {
 		return certification_id;
@@ -29,5 +37,13 @@ public class StudentSertification {
 
 	public void setCertification_name(String certification_name) {
 		this.certification_name = certification_name;
+	}
+
+	public Set<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(Set<Student> students) {
+		this.students = students;
 	}
 }

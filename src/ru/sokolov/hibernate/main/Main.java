@@ -20,7 +20,7 @@ public class Main {
 		studentSertification2.setCertification_name("MySQL DB Certification Exam");
 		
 		StudentSertification studentSertification3 = new StudentSertification();
-		studentSertification2.setCertification_name("Hibernate Certification Exam");
+		studentSertification3.setCertification_name("Hibernate Certification Exam");
 		
 		StudentAddress studentAddress = new StudentAddress();
 		studentAddress.setAddress_detail("Novosibirsk, Russia");
@@ -39,7 +39,7 @@ public class Main {
 		studentDetail1.setStudent(student1);
 		student1.setStudentAddress(studentAddress);
 		student1.getStudentSertifications().add(studentSertification1);
-//		student1.getStudentSertifications().add(studentSertification3);
+		student1.getStudentSertifications().add(studentSertification3);
 		
 		Student student2 = new Student();
 		student2.setName("Vladimir2");
@@ -47,17 +47,22 @@ public class Main {
 		studentDetail2.setStudent(student2);
 		student2.setStudentAddress(studentAddress);
 		student2.getStudentSertifications().add(studentSertification2);
-//		student2.getStudentSertifications().add(studentSertification3);
+		student2.getStudentSertifications().add(studentSertification3);
 		
 		studentAddress.getStudents().add(student1);
 		studentAddress.getStudents().add(student2);
+		
+		studentSertification1.getStudents().add(student1);
+		studentSertification2.getStudents().add(student2);
+		studentSertification3.getStudents().add(student1);
+		studentSertification3.getStudents().add(student2);
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		session.save(student1);
-		session.save(student2);
+		session.save(studentAddress);
+//		session.save(student2);
 		
 		session.getTransaction().commit();
 		session.close();
