@@ -24,23 +24,25 @@ public class Main {
 		
 		//Student
 		Student student1 = new Student();
-		student1.setName("Vladimir1");
+		student1.setName("Vladimir3");
 		student1.setStudentDetail(studentDetail1);
 		studentDetail1.setStudent(student1);
 		student1.setStudentAddress(studentAddress);
 		
 		Student student2 = new Student();
-		student2.setName("Vladimir2");
+		student2.setName("Vladimir4");
 		student2.setStudentDetail(studentDetail2);
 		studentDetail2.setStudent(student2);
 		student2.setStudentAddress(studentAddress);
+		
+		studentAddress.getStudents().add(student1);
+		studentAddress.getStudents().add(student2);
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		session.save(student1);
-		session.save(student2);
+		session.save(studentAddress);
 		
 		session.getTransaction().commit();
 		session.close();
